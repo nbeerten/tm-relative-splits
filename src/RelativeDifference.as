@@ -16,8 +16,8 @@ namespace RelativeDifference {
         int DifferenceType = (Difference < 0) ? -1 : 1;
         uint64 ParsedDifference = Math::Abs(Difference);
         string ParsedDifferenceText = Time::correctFormat(ParsedDifference, true, true, false, false);
-
-        if(CurCPDelta == 0 && PrevCPDelta == 0) {
+        
+        if(CurCPDelta == 0 && PrevCPDelta == 0 || CurCPDelta == PrevCPDelta) {
             DifferenceText = "";
             DifferenceTextType = 0;
         } else if(Regex::IsMatch(ParsedDifferenceText, "[0.:]*") && CP::curCP > 1) {
