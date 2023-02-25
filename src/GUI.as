@@ -14,7 +14,7 @@ namespace GUI
     vec4 textColour = vec4(1, 1, 1, 1);
 
     float scale = 1;
-    int fontSize = 31;
+    int fontSize = 30;
 
     /* Used in code */
     string DifferenceText;
@@ -135,9 +135,7 @@ namespace GUI
 
                         
                         RelativeDifference.Get('DifferenceText', DifferenceText);
-                        print(DifferenceText);
                         RelativeDifference.Get('DifferenceTextType', DifferenceTextType);
-                        print(DifferenceTextType);
 
                         PreviousCheckpointDelta = MLDiffTimeLabel.Value;
                     }

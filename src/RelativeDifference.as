@@ -15,7 +15,7 @@ namespace RelativeDifference {
         int Difference = CurCPDelta - PrevCPDelta;
         int DifferenceType = (Difference < 0) ? -1 : 1;
         uint64 ParsedDifference = Math::Abs(Difference);
-        string ParsedDifferenceText = Time::Format(ParsedDifference, true, true, false, false);
+        string ParsedDifferenceText = Time::correctFormat(ParsedDifference, true, true, false, false);
 
         if(CurCPDelta == 0 && PrevCPDelta == 0) {
             DifferenceText = "";

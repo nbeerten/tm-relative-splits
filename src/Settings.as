@@ -38,23 +38,28 @@ void RenderSettingsGeneral()
         boxWidthfactor = 145;
     }
     UI::Separator();
-    UI::Columns(2, "checkboxes", false);
-	    Enabled = UI::Checkbox("Enabled", Enabled);
+
+    if(UI::BeginTable("checkboxes", 2, UI::TableFlags::NoBordersInBody|UI::TableFlags::NoPadOuterX|UI::TableFlags::NoPadInnerX|UI::TableFlags::SizingStretchSame)) {
+        UI::TableNextColumn();
+        Enabled = UI::Checkbox("Enabled", Enabled);
 	    Show = UI::Checkbox("Show", Show);
 	    AutoHide = UI::Checkbox("Automatically Hide", AutoHide);
-        UI::NextColumn();
+        UI::TableNextColumn();
         ShowWithHudVisible = UI::Checkbox("Show when HUD is visible", ShowWithHudVisible);
         ShowWithHudHidden = UI::Checkbox("Show when HUD is hidden", ShowWithHudHidden);
-        UI::NextColumn();
-    UI::Columns(1);
+    }
+    UI::EndTable();
 
     UI::Separator();
-    UI::Columns(2, "anchor", false);
+
+    if(UI::BeginTable("anchor", 2, UI::TableFlags::NoBordersInBody|UI::TableFlags::NoPadOuterX|UI::TableFlags::NoPadInnerX|UI::TableFlags::SizingStretchSame)) {
+        UI::TableNextColumn();
         UI::TextWrapped('Position');
         anchorX = UI::SliderFloat("X", anchorX, 0, 1);
         anchorY = UI::SliderFloat("Y", anchorY, 0, 1);
-        UI::NextColumn();
+        UI::TableNextColumn();
         UI::TextWrapped('Size');
         boxWidthfactor = UI::InputFloat('Width', boxWidthfactor);
-    UI::Columns(1);
+    }
+    UI::EndTable();
 }
